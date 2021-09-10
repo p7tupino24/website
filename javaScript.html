@@ -1,0 +1,106 @@
+<html>
+<head>
+<script language="javaScript">
+
+
+function guessing()
+{
+/* block comment
+Write the algorithim that would prompt a user to guess a number between 1 and 10.
+The program should tell the user of the guess is too high or too low.
+If the guess is correct, the program should alert how many guess the took.
+ 
+1.Create a variable for the users answer, random number, number of guess, 
+2.Promt the user to enter a number
+3.Store a random number in a random variable
+4.Loop until answer is correct
+ `6.Test is answer is low - update user
+7.Test if too high - update user
+8.Alert if correct > yay
+
+ */
+var usersGuess = -1;
+var numOfGuesses = 0; // camelCase
+ var rand = Math.random()*10 + 1;
+ rand = parseInt(rand); 
+ alert (rand);
+ 
+ 
+ while ( usersGuess != rand ) // loop while rand does NOT equal usersGuess
+ {
+	usersGuess = prompt("Enter a number between 1-10");
+	numOfGuesses = numOfGuesses +1; // add on to var
+	/*                                // numOfGuesses++;
+    if( usersGuess < rand )
+	{
+		alert("Your guess is too low.");
+	}
+	else if ( usersGuess > rand )
+	{
+		alert("Your guess is too high.");
+
+	}
+	*/
+}
+	alert("Correct!! You guessed the right answer in "+numOfGuesses+" guesses.");
+	// User has got the correct answer.
+	
+	//finish it off.
+
+ }
+
+  
+
+function greeting1()
+{
+ alert("hello");
+}
+
+function greeting2()
+{
+
+    // var declares a variable. Use var only once per variable.
+	//1st time a varibl	e is assigned data is called "initilize"
+	var name = prompt("Type Your name");  // = is the assignment operator
+	alert("Hello there, "+name);
+}                
+                                       //This assigns the element on the right to
+                                       //the element on the left
+									   
+function greeting3()
+{
+ var name = confirm("Do you like my site?");  // = is the assignment operator
+  alert(name);
+}
+				
+				
+				
+</script>
+
+</head>
+
+<font color="dark purple" face="Comic Sans MS">
+<body background="images/029.gif">
+
+<body>
+
+<center>
+
+<h1> My first javascript Page </h1>
+
+Click here To Read About My hero
+<a href="hero_1.html"> Here </a>
+</br></br>
+
+<input type="button" value="Click For Guess" onclick="guessing()"/><br/>
+<hr/>
+<input type="button" value="Click For Message" onclick="greeting1()"/><br/>
+<hr/>
+<input type="button" value="Click For Question" onclick="greeting2()"/><br/>
+<hr/>
+<input type="button" value="Click for a confirmation" onclick="greeting3()"/><br/>
+<hr/>
+
+</center>
+</body>
+</html>
