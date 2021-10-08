@@ -1,0 +1,110 @@
+<html>
+<head>
+<script language = "javaScript">
+
+var picList = [ 
+				"images/slideshow/slide1luffy.jpg" ,
+				"images/slideshow/slide2chopper.jpg",
+				"images/slideshow/slide3zoro.jpg",
+				"images/slideshow/slide4ussop.jpg",
+				"images/slideshow/slide5sanji.jpg",
+				"images/slideshow/slide6brook.jpg" 
+				];
+				
+var clipList = [
+				"sounds/chopper.mp3",
+				"sounds/chopper.mp3",
+				"sounds/zoro.mp3",
+				"sounds/ussop.mp3",
+				"sounds/brook.mp3",
+				"sounds/sanji.mp3"
+				];
+
+
+var counter = 0;  // global variable 
+var timer;
+var autoStart = false;
+
+function nextPic()
+{	
+	//alert("h");
+	
+	document.getElementById("display").src = picList[counter];
+	document.getElementById("player1").src = "sounds/chopper.mp3";//clipList[counter];
+	var x = document.getElementById("player1").src;
+	alert(x);
+	document.getElementById("player1").play();
+	incrementCounter();
+	
+
+}
+
+function incrementCounter()
+{
+	if(counter == picList.length - 1)
+	{
+		counter = 0;
+	}
+	else
+	{
+		counter++;
+	}
+}
+
+function run()
+{
+	if(autoStart == false)
+	{
+			autoStart = true;
+			document.getElementById("runButton").value = "pause";
+			
+	}
+	else
+	{
+			autoStart = false
+			document.getElementById("runButton").value = "Run slideshadow";
+	}
+	autoPlay();
+}
+
+function autoPlay()
+{
+	if(autoStart == true)
+	{
+		nextPic();
+		//var clickTime = clipList[counter].duration;
+		//alert(clipTime);
+		timer = setTimeout( "autoPlay()", 1000);//clipTime*1000 )
+	}
+	else
+	{
+		clearTimeout(timer);
+	}
+	
+}
+var autoStart = false;
+
+</script>
+<center/>
+
+</head>
+<body>
+
+<h1> My Slideshow </h1>
+Click here to return to my homepage <a href="index_1.html"> Here </a>
+
+<br/><br/>
+
+<input type="button" value = "next Picture" onclick="nextPic()"/>
+<br/><br/>
+<input type="button" value = "run slideshow" onclick="run()" id="runButton" />
+<br/><br/>
+
+<img src="images/slideshow/slide1luffy.jpg" id="display" />
+
+<audio id="player1"></audio>
+
+<center/>
+
+<body/>
+<html/>
